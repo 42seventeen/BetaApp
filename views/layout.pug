@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    script(src="/jspm_packages/system.js")
+    script(src="/config.js")
+    script
+      | System.import('app');
+    title #{Title} | BetaApp
+  body(style="display: none")
+    div.container
+      .page-header
+        block header
+          nav.navbar.navbar-default
+            .container-fluid
+              .navbar-header
+                a.navbar-brand(href='#')
+                  img(alt='Brand', src='https://betamore.com/wp-content/themes/betamore/img/icons/mobile-logo.png', width='25px')
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a(href='/tasks') Tasks
+                  li
+                    a(href='/users') Users
+                p.navbar-text.navbar-right
+                  if user_id
+                    a(href="/users/logout") Log Out
+                  else
+                    a(href="/users/new-user") Register
+                    |  or&nbsp;
+                    a(href="/users/login") Login
+              // /.navbar-collapse
+      if flash_message
+        p= flash_message
+      block body

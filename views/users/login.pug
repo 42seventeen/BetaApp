@@ -1,0 +1,9 @@
+extends ../layout.pug
+block body
+  h1= title
+
+  form.form-inline(method="POST" action="/users/login")
+    div.form-group
+      input.form-control(type="text" name="username" placeholder="username")
+      input.form-control(type="password" name="password" placeholder="Password")
+    button#add.btn.btn-default Login
