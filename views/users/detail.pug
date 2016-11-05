@@ -2,7 +2,6 @@ extends ../layout.pug
 block body
   h1= 'Welcome ' + user.name
 
-
   dl
     dt User’s Name
     dd= user.name
@@ -12,10 +11,9 @@ block body
     dd= user.password
   hr
 
-  //
-    form.form-inline(method="POST" action="/users/" + user.id)
-      div.form-group
-        input.form-control(type=text, name=name, value= user.name)
-        input.form-control(type=text, name=username, value= user.username)
-        input.form-control(type=text, name=password, value= user.password)
-      button#add.btn.btn-default Update User
+  form.form-inline(method="POST" action="/users/" + user.id)
+    div.form-group
+      input.form-control(type=text, name=name, value= user.name)
+      input.form-control(type=text, name=username, value= user.username)
+      input.form-control(type=text, name=password, value= user.password)
+    button#add.btn.btn-default Update User
